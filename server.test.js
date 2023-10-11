@@ -14,3 +14,13 @@ test('Server is alive', async () => {
     expect(response.statusCode).toBe(200);
     expect(response.text).toBe('pong');
 });
+
+//Vi fortsätter med att testa hämta alla todos
+
+describe('Todo Routes', () => {
+    it('should get all todos', async () => {
+        const response = await request(server).get('/todos');
+        expect(response.statusCode).toBe(200);
+        expect(Array.isArray(response.body)).toBe(true);
+    })
+});
