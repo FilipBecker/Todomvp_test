@@ -1,14 +1,16 @@
 const express = require('express');
+const todoRoutes = require('./routes/todoRoutes');
+
 const app = express();
+
+app.use('/todos', todoRoutes);
 
 app.get('/ping', (req, res) => {
     res.send('pong');
 });
 
-let todos = [];
-
-app.get('/todos', (req, res) => {
-    res.json(todos);
-})
+app.listen(4242, () => {
+    console.log('Server up and running');
+});
 
 module.exports = app;
