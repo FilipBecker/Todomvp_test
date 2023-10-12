@@ -1,4 +1,4 @@
-let todos = [{'id': '1','description': 'Task 1'}];
+let todos = [{id: '1',description: 'Task 1'}];
 
 class ToDo {
     constructor(id, description) {
@@ -12,6 +12,10 @@ class ToDo {
 
     static add(todo){
         todos.push(todo);
+    }
+
+    static getById(id){
+        return todos.find(anka => anka.id === id);
     }
 }
 
